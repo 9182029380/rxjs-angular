@@ -1,7 +1,27 @@
-<h2> discount ProductList</h2>
+
+
+<h2>Product List</h2>
+
+<!-- Filter checkboxes -->
+<label>
+  <input type="checkbox" (change)="onFilterChange('0-5000', $any($event.target).checked)">
+  0 - 5000
+</label>
+
+<label>
+  <input type="checkbox" (change)="onFilterChange('5000-10000', $any($event.target).checked)">
+  5000 - 10000
+</label>
+
+<label>
+  <input type="checkbox" (change)="onFilterChange('10000+', $any($event.target).checked)">
+  10000+
+</label>
+
+<!-- Display filtered products -->
 <ul>
-    <li
-        *ngFor="let product of discountProducts">
-        {{ product.name }}- ${{product.price}}
-    </li>
+  <li *ngFor="let product of filteredProducts">
+    {{ product.name }} - ${{ product.price }}
+  </li>
 </ul>
+

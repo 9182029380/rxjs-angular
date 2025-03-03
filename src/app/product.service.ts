@@ -20,16 +20,18 @@ export class ProductService {
   //     }, 2000);
   //  });
   // }
-  private products=[
-    {name:'Laptop',price:1000},
-    {name:'Mobile',price:500},
-    {name:'Tablet',price:300}
-    ];
-  getDiscountedProducts():Observable<{name:string;price:number}>{
-    return of(...this.products).pipe(
-      map(product=>({...product,price:product.price*0.9}))
-    );
+  private products = [
+    { name: 'Laptop', price: 15000 },
+    { name: 'Mobile', price: 7000 },
+    { name: 'Tablet', price: 3000 },
+    { name: 'Smartwatch', price: 4000 },
+    { name: 'TV', price: 9000 },
+    { name: 'Headphones', price: 2000 }
+  ];
 
+  // Observable to return the full product list
+  getProducts(): Observable<{ name: string; price: number }[]> {
+    return of(this.products);
   }
    
   }
